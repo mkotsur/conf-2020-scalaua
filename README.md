@@ -2,6 +2,9 @@
 
 Code snippets for my ScalaUA 2020 talk
 
+
+
+
 ## References and credits:
 
 1. [enzief/Scala-effect-systems.md](https://gist.github.com/enzief/dbf3c0e72ef03860878b77203f62ce87)
