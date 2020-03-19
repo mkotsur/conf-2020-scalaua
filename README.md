@@ -1,8 +1,8 @@
 # conf-2020-scalaua
 
-Code snippets for my ScalaUA 2020 talk
+Code snippets for my ScalaUA 2020 talk: "Prototyping the Future with Functional Scala" 
 
-
+[Slides in PDF](./Prototyping-The-Future-ScalaUA-2020.pdf).
 
 
 ## References and credits:
