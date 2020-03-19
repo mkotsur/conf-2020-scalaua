@@ -24,7 +24,7 @@ object FutureDrawbacks extends App {
   // * difficult reasoning
   // * difficult refactoring
 
-  // (1)
+  // Parallel
   val f: Future[Int] = Future { 1 }
   val g: Future[Int] = Future { 2 }
   for {
@@ -62,7 +62,6 @@ object FutureDrawbacks extends App {
   type Activity[T] = (Name, Price, Importance, Future[T])
 
   def doCheapFirst[T](activities: List[Activity[T]]): Future[T] = ???
-
   def doImportantFirst[T](activities: List[Activity[T]]): Future[T] = ???
   // Because it doesn't matter what you have in those function, the order will be
   // defined before you write them.

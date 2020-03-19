@@ -67,6 +67,19 @@ object FutureFuture2 extends UF2App {
     } yield 0
 
     // Byt we want more power! That's why IO is a much powerful deal.
+    // How about some trampolining?
 
+    def fib(n: Int, a: Long = 0, b: Long = 1): UF2[Long] =
+      IO.suspend {
+        if (n == 0) IO.pure(a)
+        else {
+          val next = fib(n - 1, b, a + b)
+          // Every 100 cycles, introduce a logical thread fork
+          if (n % 100 == 0)
+            cs.shift *> next
+          else
+            next
+        }
+      }
   }
 }

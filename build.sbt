@@ -7,6 +7,6 @@ ThisBuild / scalaVersion := "2.13.1"
 ThisBuild / libraryDependencies += "org.typelevel" %% "cats-effect" % "2.1.2"
 
 // Sub-projects
-lazy val `future-drawbacks` = (project in file("00-future-drawbacks"))
-lazy val `inspect-future` = (project in file("01-inspect-future"))
-lazy val `future-future` = (project in file("02-future-future"))
+lazy val `future-drawbacks` = project in file("00-future-drawbacks")
+lazy val `future-future` = project in file("02-future-future")
+lazy val `effect-systems` = project in file("01-effect-systems")
