@@ -16,4 +16,12 @@ Code snippets for my ScalaUA 2020 talk: "Prototyping the Future with Functional 
 6. [Are Scala Futures the past?
 ](https://medium.com/@sderosiaux/are-scala-futures-the-past-69bd62b9c001) -- Stéphane Derosiaux
 
+7. [Dependency Injection in Functional Programming
+](https://gist.github.com/gvolpe/1454db0ed9476ed0189dcc016fd758aa) -- Gabriel Volpe
+
+8. [ZIO with http4s and doobie
+](https://medium.com/@wiemzin/zio-with-http4s-and-doobie-952fba51d089) -- Wiem Zine
+
+9. [Higher-kinded types: the difference between giving up, and moving forward
+](https://typelevel.org/blog/2016/08/21/hkts-moving-forward.html) -- Typelevel, 2016
 
