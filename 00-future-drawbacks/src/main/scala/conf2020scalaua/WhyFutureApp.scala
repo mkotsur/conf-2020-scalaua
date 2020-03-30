@@ -1,6 +1,4 @@
-package io.github.mkotsur.elif
-
-import com.sun.net.httpserver.Authenticator.{Failure, Success}
+package conf2020scalaua
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.{Failure, Success, Try}
@@ -26,6 +24,21 @@ object WhyFutureApp extends App {
   //  - return value is the same for the same arguments;
   //  - its evaluation has no side effects.
 
+  sealed trait Shape
+  case object Circle extends Shape
+  case object Square extends Shape
+  case object Rectangle extends Shape
+  case object Hexagon extends Shape
+
+  sealed trait Color
+  case object Red extends Color
+  case object Yellow extends Color
+  case object Green extends Color
+  case object Purple extends Color
+  case object Blue extends Color
+
+  def shapeColour(shape: Shape): Color = ???
+
 // CS function (operation or expression) side effect:
   // Has an observable effect besides the main effect,
   // which is returning the value to the invoker of the function (operation or expression).
@@ -47,12 +60,15 @@ object WhyFutureApp extends App {
   // Solving this problem with an Option
 
   trait OptionalUserService {
+
+    // User may not exist
     def getUserName(uid: String): Option[String]
   }
 
   val service2: OptionalUserService = ???
 
-  val nameOrNot: Option[String] = service2.getUserName("i-don't-exist")
+  val nameOrNot: Option[String] =
+    service2.getUserName("i-don't-exist")
 
   //  Practical value:
   nameOrNot.get // is the only way to screw up and not handle the 'non-happy' flow.
@@ -63,6 +79,7 @@ object WhyFutureApp extends App {
   // We can't return... so we throw
 
   trait OptionalFailsafeUserService {
+    // + there may be an error
     def getUserName(uid: String): Try[Option[String]]
   }
 
@@ -78,6 +95,10 @@ object WhyFutureApp extends App {
   // with exchanging results. And that's Future.
 
   trait TheFinalUserService {
+
+    // There may be an error
+    // + it may not exist
+    // + we don't know when it's done
     def getUserName(uid: String): Future[Option[String]]
   }
 

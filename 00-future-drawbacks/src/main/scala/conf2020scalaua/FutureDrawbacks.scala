@@ -1,7 +1,8 @@
-package io.github.mkotsur.elif
+package conf2020scalaua
 
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, ExecutionContext, Future}
+import scala.util.{Failure, Success}
 
 // Credits to:
 //   - https://gist.github.com/enzief/dbf3c0e72ef03860878b77203f62ce87
@@ -14,10 +15,29 @@ object FutureDrawbacks extends App {
 
   // Which both:
   // * shows a natural of execution
+
+  // Map
   f0.map(times2)
 
+  // Attach callback
+  f0.onComplete {
+    case Failure(exception) => ???
+    case Success(value)     => ???
+  }
+
+  // Convert error
+  f0.recover {
+    case e: Throwable => ???
+  }
+
+  // Await
+  Await.ready(f0, Duration.Inf)
+
+  // Do other things
+
   // * protects the value while it's not available yet!
-  //   because times2(f0) doesn't compile
+  //   because
+  //   times2(f0) doesn't compile
 
   // Unfortunately, though, the "instant start" feature
   // is not very good :-| because:
