@@ -1,4 +1,4 @@
-package io.github.mkotsur.elif
+package conf2020scalaua
 
 import cats.effect.{ExitCode, IO, IOApp}
 
