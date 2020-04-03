@@ -10,7 +10,15 @@ object ThreadPoolsApps extends App {
 
   object CatsEffectApp extends IOApp {
     override def run(args: List[String]): IO[ExitCode] = {
-      IO.pure(ExitCode.Success)
+
+      val io = IO {
+        Thread.sleep(1000)
+        42
+      }
+
+      import cats.implicits._
+      List.fill(10)(io).parSequence >>
+        IO.pure(ExitCode.Success)
     }
   }
 

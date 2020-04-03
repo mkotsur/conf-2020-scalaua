@@ -25,3 +25,6 @@ Code snippets for my ScalaUA 2020 talk: "Prototyping the Future with Functional 
 9. [Higher-kinded types: the difference between giving up, and moving forward
 ](https://typelevel.org/blog/2016/08/21/hkts-moving-forward.html) -- Typelevel, 2016
 
+10. [Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) -- Alexis King
+
+11. [A Glossary Of Functional Programming](http://degoes.net/articles/fp-glossary) -- John A De Goes
