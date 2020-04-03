@@ -51,25 +51,4 @@ object SimpleFuturesApp extends App {
 
   pool2.shutdown()
 
-  // So, from now on, even here, let's treat pool as a resource
-
-  val ec = Resource
-    .make(acquire = IO(Executors.newCachedThreadPool()))(
-      release = tp => IO(tp.shutdown())
-    )
-    .evalMap(executor => IO(ExecutionContext.fromExecutor(executor)))
-
-  // You can't use it nor here
-  ec.use { implicit ec =>
-    // ... only here
-    IO(Future(42))
-  }
-  // ... neither here
-
-  ec.use { implicit ec =>
-    report("10 blocking ops, cached, res")(time {
-      startNTestFutures(10)
-    })
-    IO.unit
-  }
 }

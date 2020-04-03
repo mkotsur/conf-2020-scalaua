@@ -5,6 +5,8 @@ ThisBuild / version := "0.1"
 ThisBuild / scalaVersion := "2.13.1"
 
 ThisBuild / libraryDependencies += "org.typelevel" %% "cats-effect" % "2.1.2"
+ThisBuild / libraryDependencies += "com.github.pureconfig" %% "pureconfig" % "0.12.3"
+ThisBuild / libraryDependencies += "com.github.pureconfig" %% "pureconfig-cats-effect" % "0.12.3"
 
 lazy val SimplePaths = Array(
   Compile / scalaSource := baseDirectory.value / "src",
