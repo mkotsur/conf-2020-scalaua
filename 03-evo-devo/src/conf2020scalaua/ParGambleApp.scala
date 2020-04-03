@@ -15,12 +15,15 @@ object ParGambleApp extends IOApp {
     }
 
   private def parGamble: IO[scala.Option[Jackpot.type]] =
-    Range(0, 10).map(_ => gambleGentle).toList.parSequence.flatMap {
-      _.count(_.isDefined) match {
-        case 0 => None.pure[IO]
-        case _ => Jackpot.some.pure[IO]
+    List
+      .fill(10)(gambleGentle)
+      .parSequence
+      .flatMap {
+        _.count(_.isDefined) match {
+          case 0 => None.pure[IO]
+          case _ => Jackpot.some.pure[IO]
+        }
       }
-    }
 
   override def run(args: List[String]): IO[ExitCode] = {
     for {

@@ -4,6 +4,7 @@ import cats.effect.{ExitCode, IO, IOApp}
 import conf2020scalaua.KindOfJavaLib.{Jackpot, javaGamble}
 
 object SimpleGambleApp extends IOApp {
+
   private def gamble: IO[Jackpot.type] = IO(javaGamble)
 
   override def run(args: List[String]): IO[ExitCode] = {
