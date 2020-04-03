@@ -30,9 +30,10 @@ lazy val `refactoring` = (project in file("05-refactoring"))
   .settings(SimplePaths: _*)
   .dependsOn(common)
 
+lazy val `resource` = (project in file("08-resource"))
+  .settings(SimplePaths: _*)
+  .dependsOn(common)
+
 // Common project with profiling utils, etc
 
-lazy val common = (project in file("common")).settings(
-  Compile / scalaSource := baseDirectory.value / "src",
-  Compile / resourceDirectory := baseDirectory.value / "res"
-)
+lazy val common = (project in file("common")).settings(SimplePaths: _*)
